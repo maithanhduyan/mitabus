@@ -1,0 +1,42 @@
+{
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.formatOnSave": false,
+    "editor.tabSize": 4,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active",
+    "files.encoding": "utf8",
+    "files.autoGuessEncoding": false,
+    "files.eol": "\n",
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "chat.agent.maxRequests": 500000,
+    "chat.tools.terminal.autoApprove": {
+        "uv": true,
+        "docker compose": true,
+        "/^docker exec odoo bash -c \"odoo -d odoo -u cashion_ai_chat --stop-after-init --no-http 2>&1 \\| tail -5; echo EXIT=\\$\\?\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^docker restart odoo; echo \"DONE\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "docker exec": true,
+        "pip": true,
+        "railway": true,
+        "/^python --version$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^python -c \"import ast, json; ast\\.parse\\(open\\('ai-mcp/odoo_client\\.py', encoding='utf-8'\\)\\.read\\(\\)\\); json\\.load\\(open\\('\\.vscode/mcp\\.json', encoding='utf-8'\\)\\); print\\('validation OK'\\)\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^python -m scripts\\._check_remaining$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "&": true
+    }
+}

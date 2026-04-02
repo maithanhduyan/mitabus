@@ -1,0 +1,53 @@
+# Postgres
+services:
+
+  # ---------------------------------------------------------------------------
+  # POSTGRESQL 18 — Database Server
+  # ---------------------------------------------------------------------------
+  postgres:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # container_name: postgres
+    command:
+      - postgres
+      - -c
+      - config_file=/etc/postgresql/postgresql.conf
+      - -c
+      - hba_file=/etc/postgresql/pg_hba.conf
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-odoo}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-odoo}
+      POSTGRES_DB: ${POSTGRES_DB:-postgres}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - ./conf/postgresql.conf:/etc/postgresql/postgresql.conf:ro
+      - ./conf/pg_hba.conf:/etc/postgresql/pg_hba.conf:ro
+      - ./data:/var/lib/postgresql/data
+      - ./pg-wal-archive:/backups/wal
+    networks:
+      - mitabus-net
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-odoo}"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+
+# =============================================================================
+# NETWORKS
+# =============================================================================
+networks:
+  mitabus-net:
+    external: true
+
+
+# =============================================================================
+# VOLUMES
+# =============================================================================
+# volumes:

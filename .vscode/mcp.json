@@ -1,0 +1,19 @@
+{
+    "servers": {
+        "playwright": {
+            "command": "npx",
+            "args": [
+                "@playwright/mcp@latest",
+                "--browser",
+                "chrome",
+                "--user-data-dir",
+                ".profile",
+                "--output-dir",
+                ".playwright-mcp",
+                "--output-mode",
+                "file",
+                "--ignore-https-errors"
+            ]
+        },
+    }
+}

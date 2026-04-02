@@ -1,0 +1,33 @@
+services:
+
+  odoo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: odoo
+    ports:
+      - "8069:8069"
+      - "8072:8072"
+    expose:
+      - "8069"
+      - "8072"
+    volumes:
+      - ./data:/var/lib/odoo
+      - ./addons:/mnt/extra-addons
+      - ./log:/var/log/odoo
+      - ./scripts:/mnt/scripts:ro
+    env_file:
+      - ./.env
+
+    networks:
+      - mitabus-net
+    restart: always
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+
+
+networks:
+  mitabus-net:
+    external: true

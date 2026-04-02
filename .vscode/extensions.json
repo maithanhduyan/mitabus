@@ -1,0 +1,50 @@
+{
+    // Extensions khuyến nghị cho workspace traefik-nginx-app
+    "recommendations": [
+        "ms-azuretools.vscode-docker",
+        "redhat.vscode-yaml",
+        "dbaeumer.vscode-eslint",
+        "mhutchie.git-graph"
+    ],
+    // Extensions nên TẮT cho workspace này (chúng tạo nhiều process/threads không cần thiết)
+    "unwantedRecommendations": [
+        // Java stack - ~4 processes
+        "redhat.java",
+        "vscjava.vscode-java-debug",
+        "vscjava.vscode-java-dependency",
+        "vscjava.vscode-java-test",
+        "vscjava.vscode-maven",
+        "vscjava.vscode-gradle",
+        "vscjava.vscode-spring-initializr",
+        // C/C++ - ~3 processes
+        "ms-vscode.cpptools",
+        "ms-vscode.cmake-tools",
+        "ms-vscode.makefile-tools",
+        // C# / .NET - ~3 processes
+        "ms-dotnettools.csdevkit",
+        "ms-dotnettools.csharp",
+        // Rust - ~2 processes
+        "rust-lang.rust-analyzer",
+        // Go - ~2 processes
+        "golang.go",
+        // Flutter/Dart - ~2 processes
+        "dart-code.dart-code",
+        "dart-code.flutter",
+        // PHP - ~2 processes
+        "bmewburn.vscode-intelephense-client",
+        "xdebug.php-debug",
+        "zobo.php-intellisense",
+        // Python (nếu không dùng) - ~3 processes
+        // "ms-python.python",
+        // "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter",
+        // AI Studio
+        "ms-windows-ai-studio.windows-ai-studio",
+        // Deno
+        "denoland.vscode-deno",
+        // Vue
+        "vue.volar",
+        // Kubernetes (nếu không dùng)
+        "ms-kubernetes-tools.vscode-kubernetes-tools"
+    ]
+}

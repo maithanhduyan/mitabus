@@ -1,0 +1,48 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "workbench.iconTheme": "material-icon-theme",
+        "editor.formatOnSave": false,
+        "editor.tabSize": 4,
+        "editor.bracketPairColorization.enabled": true,
+        "editor.guides.bracketPairs": "active",
+        "files.encoding": "utf8",
+        "files.autoGuessEncoding": false,
+        "files.eol": "\n",
+        "files.trimFinalNewlines": true,
+        "files.trimTrailingWhitespace": true,
+        "files.insertFinalNewline": true,
+        "chat.agent.maxRequests": 500000,
+        "chat.tools.terminal.autoApprove": {},
+        "files.watcherExclude": {
+            "**/node_modules/**": true,
+            "**/.next/**": true,
+            "**/dist/**": true,
+            "**/.git/objects/**": true,
+            "**/.git/subtree-cache/**": true
+        },
+        "search.exclude": {
+            "**/node_modules": true,
+            "**/.next": true,
+            "**/dist": true,
+            "**/pnpm-lock.yaml": true
+        },
+        "files.exclude": {
+            "**/.git": true,
+            "**/.DS_Store": true,
+            "**/Thumbs.db": true
+        },
+        "mcp": {
+            "servers": {},
+            "inputs": []
+        }
+    },
+    "launch": {
+        "version": "0.2.0",
+        "configurations": []
+    }
+}

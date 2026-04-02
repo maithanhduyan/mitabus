@@ -1,0 +1,7 @@
+__pycache__/
+data/
+logs/
+sessions/
+log/
+*.log
+*.log.*
