@@ -1,16 +1,16 @@
--- PostgreSQL init script for Odoo Multi-Tenant SaaS
--- Runs on first database initialization only
+-- =================================================================
+-- MiTaBus – Khởi tạo PostgreSQL
+-- Chạy một lần khi tạo cơ sở dữ liệu mới
+-- =================================================================
 
--- Create required extensions
-CREATE EXTENSION IF NOT EXISTS pg_trgm;
-CREATE EXTENSION IF NOT EXISTS unaccent;
-CREATE EXTENSION IF NOT EXISTS pgcrypto;
-CREATE EXTENSION IF NOT EXISTS vector;
+-- Tiện ích mở rộng (extensions)
+CREATE EXTENSION IF NOT EXISTS pg_trgm;       -- Tìm kiếm gần đúng
+CREATE EXTENSION IF NOT EXISTS unaccent;      -- Bỏ dấu khi tìm kiếm
+CREATE EXTENSION IF NOT EXISTS pgcrypto;      -- Mã hóa / UUID
+CREATE EXTENSION IF NOT EXISTS vector;        -- Tìm kiếm vector (AI)
+CREATE EXTENSION IF NOT EXISTS pg_stat_statements; -- Giám sát truy vấn
 
--- Enable pg_stat_statements for query monitoring
-CREATE EXTENSION IF NOT EXISTS pg_stat_statements;
-
--- Optimized settings for Odoo
+-- Tối ưu hóa cho Odoo
 ALTER SYSTEM SET idle_in_transaction_session_timeout = '600s';
 ALTER SYSTEM SET statement_timeout = '600s';
 
